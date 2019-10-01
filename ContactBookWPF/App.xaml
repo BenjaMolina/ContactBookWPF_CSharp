@@ -1,9 +1,16 @@
 ﻿<Application x:Class="ContactBookWPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:ContactBookWPF.ViewModels"
+             xmlns:v="clr-namespace:ContactBookWPF.Views"
              xmlns:local="clr-namespace:ContactBookWPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+
+        <DataTemplate DataType="{x:Type vm:BookViewModel}">
+            <v:BookView />
+        </DataTemplate>
+        
         <!--Brushes (Palette from: https://flatuicolors.com/palette/de)-->
         <SolidColorBrush x:Key="BlueHorizon" Color="#FF4B6584"/>
         <SolidColorBrush x:Key="BlueGrey" Color="#FF778CA3"/>

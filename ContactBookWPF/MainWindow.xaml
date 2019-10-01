@@ -6,6 +6,11 @@
         xmlns:local="clr-namespace:ContactBookWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <local:AppViewModel/>
+    </Window.DataContext>
+    
     <DockPanel>
         <!-- Tools -->
         <Grid DockPanel.Dock="Top" Height="40" Background="{StaticResource BlueGreyGradient}">
@@ -57,7 +62,7 @@
         
         <!-- Content -->
         <Grid DockPanel.Dock="Bottom">
-            <ContentControl Content=""/>
+            <ContentControl Content="{Binding CurrentView}"/>
         </Grid>
         
         
