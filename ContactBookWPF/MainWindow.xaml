@@ -30,7 +30,8 @@
             </Grid>
             
             <Grid Grid.Column="1">
-                <Button Style="{StaticResource MenuTabButton}" Content="Contactos"/>
+                <Button Style="{StaticResource MenuTabButton}" Content="Contactos"
+                        Command="{Binding BookVM.LoadContactsCommand}"/>
             </Grid>
 
             <!-- Tools Buttons -->
