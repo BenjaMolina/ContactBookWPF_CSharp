@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:vm="clr-namespace:ContactBookWPF.ViewModels"
              xmlns:v="clr-namespace:ContactBookWPF.Views"
-             xmlns:local="clr-namespace:ContactBookWPF"
+             xmlns:helper="clr-namespace:ContactBookWPF.Helpers"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
@@ -12,6 +12,9 @@
         </DataTemplate>
 
         <BitmapImage x:Key="DefaultContactImage" UriSource="pack://siteoforigin:,,,/Resources/defaultContact.png"/>
+
+        <helper:BoolToVisibilityConverter x:Key="IdEditConverter" />
+        <helper:NullToVisibilityConverter x:Key="SelectedContactConverter" />
 
         <!--Brushes (Palette from: https://flatuicolors.com/palette/de)-->
         <SolidColorBrush x:Key="BlueHorizon" Color="#FF4B6584"/>

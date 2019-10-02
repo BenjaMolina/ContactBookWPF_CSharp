@@ -27,7 +27,8 @@ namespace ContactBookWPF.ViewModels
         {
             _service = service;
 
-            ContactsVM = new ContactsViewModel();
+            ContactsVM = new ContactsViewModel(service);
+
             LoadContactsCommand = new RelayCommand(LoadContacts);
             LoadFavoritesCommand = new RelayCommand(LoadFavorites);
         }
