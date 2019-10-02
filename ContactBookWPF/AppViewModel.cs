@@ -1,4 +1,5 @@
-﻿using ContactBookWPF.Utility;
+﻿using ContactBookWPF.Services;
+using ContactBookWPF.Utility;
 using ContactBookWPF.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,9 @@ namespace ContactBookWPF
 
         public AppViewModel()
         {
-            BookVM = new BookViewModel();
+            var dataService = new MockDataService();
+
+            BookVM = new BookViewModel(dataService);
             CurrentView = BookVM;
         }
     }

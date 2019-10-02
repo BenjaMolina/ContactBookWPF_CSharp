@@ -1,4 +1,5 @@
-﻿using ContactBookWPF.Utility;
+﻿using ContactBookWPF.Services;
+using ContactBookWPF.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace ContactBookWPF.ViewModels
 {
     public class BookViewModel : BaseViewModel
     {
+        private IContactDataService _service;
+
         private ContactsViewModel _contactsVM;
         public ContactsViewModel ContactsVM
         {
@@ -20,21 +23,24 @@ namespace ContactBookWPF.ViewModels
         public ICommand LoadContactsCommand { get; private set; }
         public ICommand LoadFavoritesCommand { get; private set; }
 
-        public BookViewModel()
+        public BookViewModel(IContactDataService service)
         {
+            _service = service;
+
             ContactsVM = new ContactsViewModel();
             LoadContactsCommand = new RelayCommand(LoadContacts);
             LoadFavoritesCommand = new RelayCommand(LoadFavorites);
         }
 
         private void LoadContacts()
-        {
-
+        {            
+            ContactsVM.LoadContacts(_service.GetContacts());
         }
 
         private void LoadFavorites()
         {
-
+            var favorites = _service.GetContacts().Where(c => c.IsFavorite);
+            ContactsVM.LoadContacts(favorites);
         }
     }
 }
